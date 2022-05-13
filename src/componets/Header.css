@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;800&display=swap');
+
+.headerPage{
+    /* flex: 1 spread to full width */
+    flex: 1;  
+    color: gold;
+    font-family:  "Montserrat";
+    font-weight: bold;
+    cursor: pointer;
+}

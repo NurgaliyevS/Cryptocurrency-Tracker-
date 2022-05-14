@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 import {
   AppBar,
@@ -8,30 +8,63 @@ import {
   Container,
   MenuItem,
   Select,
+  createTheme,
+  ThemeProvider,
 } from "@mui/material";
 
 import "./Header.css";
+import { CryptoState } from "../CryptoContext";
 
 const Header = () => {
+  let navigate = useNavigate();
+  const { currency, setCurrency } = CryptoState();
+
+  const darkTheme = createTheme({
+    palette: {
+      mode: "dark",
+      primary: {
+        main: "#fff",
+      },
+    },
+  });
+
   return (
-    <AppBar color="success" position="static">
-      <Container>
-        <Toolbar>
-          <Typography className="headerPage">Crypto Monitoring</Typography>
-          <Select
-            defaultValue={"USD"}
-            label="CURRENCY"
-            variant="outlined"
-            style={{ width: 100, height: 40, marginLeft: 15 }}
-          >
-            <MenuItem value={"USD"}>USD</MenuItem>
-            <MenuItem value={"EUR"}>EUR</MenuItem>
-            <MenuItem value={"RUB"}>RUB</MenuItem>
-            <MenuItem value={"KZT"}>KZT</MenuItem>
-          </Select>
-        </Toolbar>
-      </Container>
-    </AppBar>
+    <ThemeProvider theme={darkTheme}>
+      <AppBar position="static" color="transparent" enableColorOnDark>
+        <Container>
+          <Toolbar>
+            <Typography
+              onClick={() => {
+                navigate("./");
+              }}
+              className="headerPage"
+              style={{ fontFamily: "Montserrat" }}
+            >
+              Monitoring CryptoCurrency
+            </Typography>
+            <Select
+              defaultValue={"USD"}
+              label="CURRENCY"
+              variant="outlined"
+              style={{
+                width: 100,
+                height: 40,
+                marginRight: 15,
+                color: "white",
+                borderColor: "white",
+              }}
+              value={currency}
+              onChange={(e) => setCurrency(e.target.value)}
+            >
+              <MenuItem value={"USD"}>USD</MenuItem>
+              <MenuItem value={"EUR"}>EUR</MenuItem>
+              <MenuItem value={"RUB"}>RUB</MenuItem>
+              <MenuItem value={"KZT"}>KZT</MenuItem>
+            </Select>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </ThemeProvider>
   );
 };
 

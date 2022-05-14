@@ -4,7 +4,7 @@
     /* flex: 1 spread to full width */
     flex: 1;  
     color: gold;
-    font-family:  "Montserrat";
+    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     cursor: pointer;
 }

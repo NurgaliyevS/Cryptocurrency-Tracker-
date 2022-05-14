@@ -1,0 +1,12 @@
+.banner{
+    background-image: url("../../../public/banner2.jpg");
+}
+
+.content{
+    height: 400;
+    display: flex;
+    flex-direction: column;
+    padding-top: 25;
+    justify-content: space-around;
+    background-color: yellow
+}

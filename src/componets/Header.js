@@ -40,7 +40,7 @@ const Header = () => {
               className="headerPage"
               style={{ fontFamily: "Montserrat" }}
             >
-              Monitoring CryptoCurrency
+              Track Cryptocurrency
             </Typography>
             <Select
               defaultValue={"USD"}
@@ -59,7 +59,7 @@ const Header = () => {
               <MenuItem value={"USD"}>USD</MenuItem>
               <MenuItem value={"EUR"}>EUR</MenuItem>
               <MenuItem value={"RUB"}>RUB</MenuItem>
-              <MenuItem value={"KZT"}>KZT</MenuItem>
+              <MenuItem value={"BTC"}>BTC</MenuItem>
             </Select>
           </Toolbar>
         </Container>

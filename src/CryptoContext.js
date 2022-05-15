@@ -10,7 +10,7 @@ const CryptoContext = ({ children }) => {
     if (currency === "USD") setSymbol("$");
     else if (currency === "EUR") setSymbol("€");
     else if (currency === "RUB") setSymbol("₽");
-    else if (currency === "KZT") setSymbol("₸");
+    else if (currency === "BTC") setSymbol("₿");
   }, [currency]);
 
   return (

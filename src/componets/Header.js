@@ -44,7 +44,6 @@ const Header = () => {
             </Typography>
             <Select
               defaultValue={"USD"}
-              label="CURRENCY"
               variant="outlined"
               style={{
                 width: 100,

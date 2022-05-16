@@ -6,7 +6,7 @@ import { CryptoState } from "../CryptoContext";
 import CoinInfo from "../componets/CoinInfo";
 
 import { styled } from "@mui/material/styles";
-import { Typography } from "@mui/material";
+import { Typography, LinearProgress } from "@mui/material";
 
 import { numberWithCommas } from "../componets/CoinsTable";
 
@@ -82,6 +82,8 @@ const CoinPage = () => {
     fetchCoin();
   }, [currency]);
 
+  if (!coin) return <LinearProgress style={{ background: "gold" }} />;
+
   return (
     <ContainerCustom>
       <SidebarCustom>
@@ -94,13 +96,13 @@ const CoinPage = () => {
         <HeadingCustom>
           <Typography variant="h3">{coin?.name}</Typography>
         </HeadingCustom>
-      </SidebarCustom>
-      <DescriptionCustom>
-        <Typography variant="subtitle1">
-          {coin?.description.en !== undefined
-            ? parse(`${coin.description.en.split(". ")[0]}`)
-            : ""}
-        </Typography>
+        <DescriptionCustom>
+          <Typography variant="subtitle1">
+            {coin?.description.en !== undefined
+              ? parse(`${coin.description.en.split(". ")[0]}`)
+              : ""}
+          </Typography>
+        </DescriptionCustom>
         <MarketData>
           <span style={{ display: "flex" }}>
             <HeadingCustom>
@@ -118,6 +120,7 @@ const CoinPage = () => {
                 : ""}
             </Typography>
           </span>
+
           <span style={{ display: "flex" }}>
             <HeadingCustom>
               <Typography variant="h5">Current Price:</Typography>
@@ -137,6 +140,7 @@ const CoinPage = () => {
                 : ""}
             </Typography>
           </span>
+
           <span style={{ display: "flex" }}>
             <HeadingCustom>
               <Typography variant="h5">Market Cap:</Typography>
@@ -161,7 +165,7 @@ const CoinPage = () => {
             </Typography>
           </span>
         </MarketData>
-      </DescriptionCustom>
+      </SidebarCustom>
       <CoinInfo coin={coin} />
     </ContainerCustom>
   );

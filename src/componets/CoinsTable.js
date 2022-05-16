@@ -19,9 +19,12 @@ import {
   Pagination,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { numberWithCommas } from "./Banner/Carousel";
 
 import "./CoinTable.css";
+
+export function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 const CoinsTable = () => {
   const [coins, setCoins] = useState([]);
@@ -29,14 +32,6 @@ const CoinsTable = () => {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const { currency, symbol } = CryptoState();
-
-  const themePagination = createTheme({
-    pagination: {
-      "& .MuiPaginationItem-root": {
-        color: "gold",
-      },
-    },
-  });
 
   const navigate = useNavigate();
 

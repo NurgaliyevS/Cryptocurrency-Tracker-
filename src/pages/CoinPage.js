@@ -16,7 +16,7 @@ const CoinPage = () => {
 
     setCoin(data);
   };
-  //
+  // another testing
   console.log(coin);
 
   useEffect(() => {
